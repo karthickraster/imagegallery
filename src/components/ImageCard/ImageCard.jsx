@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import './ImageCard.css'
-
+import Stack from '@mui/material/Stack';
 
 
 const ImageCard = () => {
@@ -24,16 +24,17 @@ const ImageCard = () => {
     return (
 
         <>
-            <div className='card-container'>
+            <Stack spacing={{ xs: 1, sm: 2  }} columns={{ xs: 1, sm: 2, md: 3 }} direction="row" useFlexGap flexWrap="wrap" 
+  >
             {image.map(item => {
 
                 return (
                     
-                    <Card sx={{ maxWidth: 345, display: 'flex'}} key={item.idMeal}>
+                    <Card sx={{ width: 285, display: 'flex'}} key={item.idMeal} >
                         <CardActionArea>
                             <CardMedia
                                 component="img"
-                                width="300"
+                                height="250"
                                 image={item.strMealThumb}
                                 alt="green iguana"
                             />
@@ -46,11 +47,11 @@ const ImageCard = () => {
                             </CardContent>
                         </CardActionArea>
                     </Card>
-
+                   
                 )
             })
             }
-            </div>
+             </Stack>
         </>
     );
 }
